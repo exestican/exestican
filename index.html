@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>Bayik The Rel - ULTIMATE</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Dancing Script', cursive;
+      margin: 0;
+      padding: 0;
+      background: url('https://i.ibb.co/tzFzThM/bg-pink-hearts.gif') no-repeat center center fixed;
+      background-size: cover;
+      text-align: center;
+      color: #ff4d94;
+      overflow-x: hidden;
+    }
+    h1 {
+      font-size: 3em;
+      margin-top: 30px;
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #ff99cc; }
+      to { text-shadow: 0 0 20px #ff66b2, 0 0 30px #ff66b2; }
+    }
+    .btn {
+      padding: 12px 24px;
+      font-size: 1em;
+      margin: 10px;
+      background: #ff85c1;
+      border: none;
+      border-radius: 10px;
+      color: white;
+      cursor: pointer;
+    }
+    .gif-container img {
+      width: 100px;
+      margin: 10px;
+    }
+    .love-audio {
+      cursor: pointer;
+      width: 80px;
+      animation: pulse 1.5s infinite;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+    .surat-cinta {
+      background: #fff0f6dd;
+      margin: 40px auto;
+      padding: 20px;
+      max-width: 90%;
+      border-radius: 20px;
+      box-shadow: 0 0 15px #ffa4d4;
+      font-size: 1.3em;
+      animation: fadeIn 2s ease-in-out;
+      white-space: pre-wrap;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .chat-box, .story-container {
+      background: #fff0f6;
+      border-radius: 20px;
+      padding: 20px;
+      margin: 30px auto;
+      width: 90%;
+      max-width: 500px;
+      box-shadow: 0 0 10px rgba(255, 105, 180, 0.5);
+    }
+    .message {
+      background: #ffe0ed;
+      border-radius: 10px;
+      padding: 10px;
+      margin: 10px 0;
+      text-align: left;
+    }
+    .story-page {
+      display: none;
+    }
+    .story-page.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <h1>Bayik The Rel - Versi Ultimate</h1>
+
+  <div class="gif-container">
+    <img src="https://media.tenor.com/UXsL9Q6bOy8AAAAi/cute-kitty.gif" alt="Kucing" />
+    <img src="https://media.tenor.com/9mAsuWE1F1EAAAAC/ultraman-jump.gif" alt="Ultraman" />
+  </div>
+
+  <img src="https://media.tenor.com/vLpyVb07RIEAAAAi/love-you.gif" class="love-audio" onclick="toggleAudio()" />
+  <audio id="audio" autoplay loop>
+    <source src="song.mp3" type="audio/mpeg" />
+  </audio>
+
+  <div class="surat-cinta">
+    Untuk cintaku satu-satunya, yang selalu ada di hati... ❤️✨🐱
+
+Hari demi hari kita lewati bareng, nggak semua mulus, tapi kamu tetap bertahan. 💪
+Kamu tetap milih aku, meski aku nggak sempurna. Dan buat aku… itu hal paling berharga. 🎁
+
+Kamu itu rumah buat aku pulang, pelukan kamu tempat paling aman, dan senyummu obat paling ampuh buat hari-hariku. 🏠🤗💖
+
+Di hari spesial ini, aku cuma mau bilang: terima kasih. 🙏
+Terima kasih udah jadi temen, pasangan, penyemangat, bahkan alasan aku terus berjuang. 👫🔥
+
+Aku mau terus bersamamu, bukan cuma di ulang tahun hubungan ini,
+tapi di setiap pagi, siang, malam, sampai kita tua nanti. 🌅🌙💑
+
+Kamu dan aku, kita adalah tim paling solid dalam cerita cinta ini. ✨💘
+
+Aku sayang kamu. Selalu. Selamanya. ❤️💋🌈
+  </div>
+
+  <div>
+    <button class="btn" onclick="virtualHug()">Peluk Virtual 🤗</button>
+    <audio id="hugSound">
+      <source src="https://www.soundjay.com/human/sounds/hug-1.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <div class="chat-box">
+    <h2>Chat Simulasi Cinta</h2>
+    <div id="chatMessages">
+      <div class="message">Aku sayang kamu... kamu sayang aku juga?</div>
+    </div>
+    <input type="text" id="chatInput" placeholder="Balas di sini..." style="padding:10px; width:70%;">
+    <button class="btn" onclick="sendChat()">Kirim</button>
+  </div>
+
+  <div class="story-container">
+    <h2>Perjalanan Cinta Kita</h2>
+    <div id="storyPages">
+      <div class="story-page active">
+        <p>Bab 1: Awal Kenal<br>Kita pertama kali ketemu di tempat yang nggak disangka-sangka...</p>
+      </div>
+      <div class="story-page">
+        <p>Bab 2: Jadi Deket<br>Setiap hari ngobrol, saling ngasih perhatian...</p>
+      </div>
+      <div class="story-page">
+        <p>Bab 3: Jadian!<br>Hari itu kamu bilang iya... dan sejak saat itu semuanya berubah jadi lebih indah.</p>
+      </div>
+    </div>
+    <button class="btn" onclick="prevStory()">Sebelumnya</button>
+    <button class="btn" onclick="nextStory()">Selanjutnya</button>
+  </div>
+
+  <script>
+    const audio = document.getElementById("audio");
+    function toggleAudio() {
+      if (audio.paused) {
+        audio.play();
+      } else {
+        audio.pause();
+      }
+    }
+    function virtualHug() {
+      const hugSound = document.getElementById("hugSound");
+      hugSound.play();
+      alert("Peluk hangat terkirim! 🤗💞");
+    }
+    function sendChat() {
+      const input = document.getElementById("chatInput");
+      if (input.value.trim()) {
+        const div = document.createElement("div");
+        div.className = "message";
+        div.textContent = input.value;
+        document.getElementById("chatMessages").appendChild(div);
+        input.value = "";
+      }
+    }
+    let currentStory = 0;
+    const pages = document.querySelectorAll(".story-page");
+    function showStory(index) {
+      pages.forEach((p, i) => {
+        p.classList.toggle("active", i === index);
+      });
+    }
+    function nextStory() {
+      if (currentStory < pages.length - 1) {
+        currentStory++;
+        showStory(currentStory);
+      }
+    }
+    function prevStory() {
+      if (currentStory > 0) {
+        currentStory--;
+        showStory(currentStory);
+      }
+    }
+  </script>
+</body>
+</html>
