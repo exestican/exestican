@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ultimate Romantic Game</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Dancing Script', cursive;
+      background: linear-gradient(to right, #ffe0e6, #ffe6f7);
+      color: #444;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+    h1 {
+      font-size: 3em;
+      color: #d63384;
+      text-shadow: 0 0 10px rgba(255, 192, 203, 0.8);
+      animation: glow 2s infinite alternate;
+    }
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 5px #fff;
+      }
+      to {
+        text-shadow: 0 0 20px #ff69b4;
+      }
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 1.2em;
+      border: none;
+      border-radius: 20px;
+      background-color: #ff69b4;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+    button:hover {
+      background-color: #ff85c1;
+      transform: scale(1.05);
+    }
+    #question {
+      margin: 30px 0;
+      font-size: 2em;
+    }
+    #ultramanWin {
+      display: none;
+      margin-top: 20px;
+    }
+    .slideshow {
+      display: none;
+      margin-top: 20px;
+    }
+    .slideshow img {
+      width: 300px;
+      height: auto;
+      border-radius: 20px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      margin: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Kamu Menangin Hatiku!</h1>
+  <div id="question">Loading pertanyaan...</div>
+  <button onclick="nextQuestion()">Lanjut</button>
+  <div id="ultramanWin">
+    <img src="ultraman.png" alt="Ultraman">
+    <button onclick="peluk()">Peluk Virtual</button>
+  </div>
+  <div class="slideshow" id="slideshow">
+    <img src="foto1.jpg">
+    <img src="foto2.jpg">
+    <img src="foto3.jpg">
+  </div>
+
+  <script>
+    const questions = [
+      { q: "Apakah kamu sayang aku?" },
+      { q: "Kalau kita jauh, kamu tetap setia?" },
+      { q: "Mau nemenin aku terus?" }
+    ];
+    let current = 0;
+    const bgm = new Audio("[Sub Thai] Last Night on Earth - Green Day (320).mp3");
+    bgm.loop = true;
+    bgm.play();
+
+    function nextQuestion() {
+      if (current < questions.length) {
+        document.getElementById("question").innerText = questions[current].q;
+        current++;
+      } else {
+        document.getElementById("question").innerText = "Dengerin baik-baik ya...";
+        document.getElementById("ultramanWin").style.display = "block";
+        document.getElementById("slideshow").style.display = "block";
+        setTimeout(() => {
+          const sayang = new Audio("aku_sayang_kamu.mp3");
+          sayang.play();
+          alert("Aku punya surat cinta buat kamu...
+
+Cintaku ke kamu nggak ada habisnya. Terima kasih udah jadi cahaya dalam hidupku.");
+        }, 1000);
+      }
+    }
+
+    function peluk() {
+      alert("Peluk dari jauh... tapi cintanya nyata!");
+    }
+  </script>
+</body>
+</html>
