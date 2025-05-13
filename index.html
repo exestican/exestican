@@ -11,7 +11,8 @@
       font-family: 'Poppins', sans-serif;
       background: #ffd6e8;
       color: #333;
-      overflow: hidden;
+      overflow-x: hidden;
+      overflow-y: scroll;
     }
 
     .bg-heart {
@@ -70,11 +71,11 @@
     }
 
     .container {
-      background-color: rgba(255, 255, 255, 0.85);
+      background-color: rgba(255, 255, 255, 0.9);
       padding: 40px;
-      border-radius: 20px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-      max-width: 700px;
+      border-radius: 30px;
+      box-shadow: 0 6px 30px rgba(0, 0, 0, 0.2);
+      max-width: 750px;
       margin: 80px auto;
       text-align: center;
       animation: slideIn 1.5s ease forwards;
@@ -88,22 +89,24 @@
     }
 
     h1 {
-      font-size: 2em;
-      color: #ff69b4;
-      margin-bottom: 20px;
+      font-size: 2.2em;
+      color: #ff4fa1;
+      margin-bottom: 25px;
+      font-weight: 700;
     }
 
     p {
-      font-size: 1.1em;
+      font-size: 1.15em;
       margin-bottom: 20px;
-      line-height: 1.6;
+      line-height: 1.7;
     }
 
     .question {
-      margin-top: 20px;
+      margin-top: 25px;
       font-style: italic;
-      font-size: 1.2em;
+      font-size: 1.3em;
       color: #d6336c;
+      font-weight: 500;
     }
 
     audio {
@@ -122,30 +125,66 @@
 
     .btn-kirim {
       margin-top: 30px;
-      padding: 12px 25px;
-      font-size: 1em;
+      padding: 14px 30px;
+      font-size: 1.1em;
       border: none;
-      border-radius: 12px;
-      background-color: #ff85a2;
+      border-radius: 20px;
+      background-color: #ff7fbc;
       color: white;
       cursor: pointer;
       transition: all 0.3s ease;
+      font-weight: 600;
     }
 
     .btn-kirim:hover {
       background-color: #ff5c8d;
-      transform: scale(1.05);
+      transform: scale(1.08);
     }
 
     .penutup {
       margin-top: 40px;
-      font-size: 1em;
+      font-size: 1.1em;
       font-style: italic;
       color: #555;
+    }
+
+    .teks-romantis {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 10px;
+      background-color: rgba(255, 192, 203, 0.9);
+      font-size: 1em;
+      font-style: italic;
+      font-weight: 500;
+      color: #a6005a;
+      text-align: center;
+      animation: fadeIn 3s ease-in-out infinite alternate;
+      z-index: 999;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0.7; }
+      100% { opacity: 1; }
+    }
+
+    .confetti {
+      position: fixed;
+      width: 20px;
+      height: 20px;
+      background-color: pink;
+      border-radius: 50%;
+      animation: pop 1.5s ease forwards;
+    }
+
+    @keyframes pop {
+      from { transform: scale(0); opacity: 1; }
+      to { transform: scale(2); opacity: 0; }
     }
   </style>
 </head>
 <body>
+  <div class="teks-romantis">Kamu tahu nggak? Kamu itu alasanku bahagia setiap hari 💕</div>
   <div class="bg-heart"></div>
   <img src="https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif" class="bunny-hop" alt="Bunny Hop">
   <div class="falling-hearts">
@@ -183,11 +222,24 @@
     <p class="penutup">Dari kelinci kecil yang selalu mikirin kamu 🐰❤️</p>
   </div>
 
+  <audio id="cuteSound" src="https://www.fesliyanstudios.com/play-mp3/387" preload="auto"></audio>
+
   <script>
     function kirimJawaban(button) {
       button.innerText = "Aku Juga Sayang Kamu ❤️";
+      document.getElementById('cuteSound').play();
       const pesan = encodeURIComponent("Aku sadar dan aku juga sayang kamu banget ❤️");
       window.open(`https://wa.me/?text=${pesan}`, '_blank');
+
+      for (let i = 0; i < 30; i++) {
+        const confetti = document.createElement('div');
+        confetti.className = 'confetti';
+        confetti.style.left = Math.random() * 100 + '%';
+        confetti.style.top = Math.random() * 100 + '%';
+        confetti.style.backgroundColor = ['#ffb3d9','#ffcce6','#ffd9ec','#ffe6f2'][i%4];
+        document.body.appendChild(confetti);
+        setTimeout(() => confetti.remove(), 1500);
+      }
     }
   </script>
 </body>
