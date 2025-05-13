@@ -1,126 +1,133 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Hai Cintaku 💖</title>
-  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pesan Cinta dari Kelinci Imut</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
-      font-family: 'Comic Neue', cursive;
-      background: linear-gradient(135deg, #ffc4ec, #ffe4e1);
-      color: #4e0034;
-      overflow-x: hidden;
+      font-family: 'Poppins', sans-serif;
+      background: #ffd6e8;
+      color: #333;
+      overflow: hidden;
     }
 
-    .bg-anim {
+    .bg-heart {
       position: fixed;
-      top: 0; left: 0;
+      top: 0;
+      left: 0;
       width: 100vw;
       height: 100vh;
-      background-image: url('https://i.gifer.com/7VE.gif');
-      background-size: cover;
-      background-position: center;
-      opacity: 0.3;
+      pointer-events: none;
+      background: url('https://i.pinimg.com/originals/1f/eb/68/1feb682f22aa52b68cd683447065ceef.gif') center/cover no-repeat;
+      animation: fadeBg 6s ease-in-out infinite alternate;
       z-index: -1;
-      animation: zoom 20s infinite alternate ease-in-out;
     }
 
-    @keyframes zoom {
-      0% { transform: scale(1); }
-      100% { transform: scale(1.1); }
+    @keyframes fadeBg {
+      0% { opacity: 0.5; }
+      100% { opacity: 1; }
     }
 
     .container {
-      max-width: 700px;
-      margin: 60px auto;
-      background: rgba(255, 255, 255, 0.6);
+      background-color: rgba(255, 255, 255, 0.85);
       padding: 40px;
-      border-radius: 25px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+      border-radius: 20px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+      max-width: 700px;
+      margin: 80px auto;
       text-align: center;
+      animation: slideIn 1.5s ease forwards;
+    }
+
+    @keyframes slideIn {
+      from { transform: translateY(30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
     }
 
     h1 {
-      font-size: 2.2em;
-      margin-bottom: 10px;
+      font-size: 2em;
+      color: #ff69b4;
+      margin-bottom: 20px;
     }
 
     p {
-      font-size: 1.2em;
+      font-size: 1.1em;
+      margin-bottom: 20px;
       line-height: 1.6;
     }
 
-    .gif {
+    .question {
       margin-top: 20px;
-      max-width: 90%;
-      border-radius: 20px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+      font-style: italic;
+      font-size: 1.2em;
+      color: #d6336c;
     }
 
     audio {
-      width: 100%;
       margin-top: 30px;
-      border-radius: 10px;
+      width: 100%;
+      border-radius: 12px;
+    }
+
+    .gif {
+      margin-top: 30px;
+      border-radius: 20px;
+      max-width: 100%;
+      height: auto;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     }
 
     .btn-kirim {
-      margin-top: 25px;
-      font-size: 1.1em;
+      margin-top: 30px;
       padding: 12px 25px;
-      background-color: #ff66a3;
-      color: white;
+      font-size: 1em;
       border: none;
-      border-radius: 10px;
+      border-radius: 12px;
+      background-color: #ff85a2;
+      color: white;
       cursor: pointer;
-      transition: transform 0.2s;
+      transition: all 0.3s ease;
     }
 
     .btn-kirim:hover {
+      background-color: #ff5c8d;
       transform: scale(1.05);
-      background-color: #ff3385;
-    }
-
-    .emoji {
-      font-size: 2rem;
-      animation: heartBeat 2s infinite;
-    }
-
-    @keyframes heartBeat {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.2); }
     }
   </style>
 </head>
 <body>
-  <div class="bg-anim"></div>
+  <div class="bg-heart"></div>
   <div class="container">
-    <div class="emoji">🥺💌</div>
-    <h1>Hai Sayangku yang Gemesin!</h1>
+    <h1>Untuk Seseorang yang Paling Aku Cinta</h1>
     <p>
-      Aku bikin ini karena aku nggak bisa berhenti mikirin kamu 😳<br>
-      Dunia ini terasa lebih berwarna cuma karena kamu ada. Kadang aku malu, tapi beneran... kamu itu segalanya 😘
+      Mungkin selama ini kita terlalu sering berharap, membayangkan masa depan yang sempurna, dan lupa kalau cinta itu bukan tentang hal-hal besar. Cinta adalah tentang tetap bertahan meski kecewa, tentang memaafkan meski hati pernah luka.
     </p>
     <p>
-      Kadang ekspektasi kita tinggi, tapi cinta itu lucu ya... dia hadir di tengah kekacauan tapi tetap bikin kita kuat.
+      Aku tahu, kadang aku nggak selalu seperti yang kamu harapkan. Tapi setiap detik bersamamu adalah hadiah yang nggak pernah aku anggap remeh. Kamu adalah alasan kenapa aku terus percaya pada cinta, meski dunia kadang membuat semuanya tampak rumit.
     </p>
-    <p><strong>Yuk jawab jujur ya!</strong> Seberapa sering kamu mikirin aku hari ini? 😝</p>
+    <p>
+      Lagu ini mungkin terdengar sedih, tapi bagiku... ia adalah pengingat bahwa kita pernah berjuang, dan semoga terus berjuang untuk saling mengerti, bukan untuk menjadi sempurna.
+    </p>
+    <p class="question">
+      Kamu pernah sadar nggak, seberapa besar aku berusaha hanya untuk melihat kamu bahagia?
+    </p>
 
-    <button class="btn-kirim" onclick="kirim()">Kirim Jawaban di WhatsApp 💌</button>
+    <button class="btn-kirim" onclick="kirimJawaban()">Jawab Sekarang ❤️</button>
 
     <audio controls autoplay loop>
       <source src="lagu.mp3" type="audio/mp3">
-      Browser kamu nggak dukung audio nih.
+      Browser kamu tidak mendukung audio.
     </audio>
 
-    <img src="animasi.gif" alt="Cute GIF" class="gif">
+    <img src="animasi.gif" alt="Romantic Bunny GIF" class="gif">
   </div>
 
   <script>
-    function kirim() {
-      const pesan = encodeURIComponent("Aku mikirin kamu terus hari ini 🥰💖");
+    function kirimJawaban() {
+      const pesan = encodeURIComponent("Aku sadar dan aku juga sayang kamu banget ❤️");
       window.open(`https://wa.me/?text=${pesan}`, '_blank');
     }
   </script>
