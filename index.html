@@ -1,0 +1,128 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hai Cintaku 💖</title>
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Comic Neue', cursive;
+      background: linear-gradient(135deg, #ffc4ec, #ffe4e1);
+      color: #4e0034;
+      overflow-x: hidden;
+    }
+
+    .bg-anim {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-image: url('https://i.gifer.com/7VE.gif');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.3;
+      z-index: -1;
+      animation: zoom 20s infinite alternate ease-in-out;
+    }
+
+    @keyframes zoom {
+      0% { transform: scale(1); }
+      100% { transform: scale(1.1); }
+    }
+
+    .container {
+      max-width: 700px;
+      margin: 60px auto;
+      background: rgba(255, 255, 255, 0.6);
+      padding: 40px;
+      border-radius: 25px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.2em;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1.2em;
+      line-height: 1.6;
+    }
+
+    .gif {
+      margin-top: 20px;
+      max-width: 90%;
+      border-radius: 20px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    }
+
+    audio {
+      width: 100%;
+      margin-top: 30px;
+      border-radius: 10px;
+    }
+
+    .btn-kirim {
+      margin-top: 25px;
+      font-size: 1.1em;
+      padding: 12px 25px;
+      background-color: #ff66a3;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .btn-kirim:hover {
+      transform: scale(1.05);
+      background-color: #ff3385;
+    }
+
+    .emoji {
+      font-size: 2rem;
+      animation: heartBeat 2s infinite;
+    }
+
+    @keyframes heartBeat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-anim"></div>
+  <div class="container">
+    <div class="emoji">🥺💌</div>
+    <h1>Hai Sayangku yang Gemesin!</h1>
+    <p>
+      Aku bikin ini karena aku nggak bisa berhenti mikirin kamu 😳<br>
+      Dunia ini terasa lebih berwarna cuma karena kamu ada. Kadang aku malu, tapi beneran... kamu itu segalanya 😘
+    </p>
+    <p>
+      Kadang ekspektasi kita tinggi, tapi cinta itu lucu ya... dia hadir di tengah kekacauan tapi tetap bikin kita kuat.
+    </p>
+    <p><strong>Yuk jawab jujur ya!</strong> Seberapa sering kamu mikirin aku hari ini? 😝</p>
+
+    <button class="btn-kirim" onclick="kirim()">Kirim Jawaban di WhatsApp 💌</button>
+
+    <audio controls autoplay loop>
+      <source src="lagu.mp3" type="audio/mp3">
+      Browser kamu nggak dukung audio nih.
+    </audio>
+
+    <img src="animasi.gif" alt="Cute GIF" class="gif">
+  </div>
+
+  <script>
+    function kirim() {
+      const pesan = encodeURIComponent("Aku mikirin kamu terus hari ini 🥰💖");
+      window.open(`https://wa.me/?text=${pesan}`, '_blank');
+    }
+  </script>
+</body>
+</html>
