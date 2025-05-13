@@ -31,6 +31,44 @@
       100% { opacity: 1; }
     }
 
+    .bunny-hop {
+      position: fixed;
+      bottom: 10px;
+      left: 10px;
+      width: 100px;
+      animation: hop 2s infinite alternate;
+      z-index: 1;
+    }
+
+    @keyframes hop {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-20px); }
+    }
+
+    .falling-hearts {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .heart, .carrot {
+      position: absolute;
+      top: -50px;
+      font-size: 24px;
+      animation: fall 6s linear infinite;
+      color: #ff5e7e;
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(0); opacity: 1; }
+      100% { transform: translateY(100vh); opacity: 0; }
+    }
+
     .container {
       background-color: rgba(255, 255, 255, 0.85);
       padding: 40px;
@@ -40,6 +78,8 @@
       margin: 80px auto;
       text-align: center;
       animation: slideIn 1.5s ease forwards;
+      position: relative;
+      z-index: 2;
     }
 
     @keyframes slideIn {
@@ -96,10 +136,26 @@
       background-color: #ff5c8d;
       transform: scale(1.05);
     }
+
+    .penutup {
+      margin-top: 40px;
+      font-size: 1em;
+      font-style: italic;
+      color: #555;
+    }
   </style>
 </head>
 <body>
   <div class="bg-heart"></div>
+  <img src="https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif" class="bunny-hop" alt="Bunny Hop">
+  <div class="falling-hearts">
+    <div class="heart" style="left: 10%; animation-delay: 0s;">❤️</div>
+    <div class="carrot" style="left: 30%; animation-delay: 2s;">🥕</div>
+    <div class="heart" style="left: 50%; animation-delay: 1s;">💖</div>
+    <div class="carrot" style="left: 70%; animation-delay: 3s;">🥕</div>
+    <div class="heart" style="left: 90%; animation-delay: 4s;">💕</div>
+  </div>
+
   <div class="container">
     <h1>Untuk Seseorang yang Paling Aku Cinta</h1>
     <p>
@@ -115,7 +171,7 @@
       Kamu pernah sadar nggak, seberapa besar aku berusaha hanya untuk melihat kamu bahagia?
     </p>
 
-    <button class="btn-kirim" onclick="kirimJawaban()">Jawab Sekarang ❤️</button>
+    <button class="btn-kirim" onclick="kirimJawaban(this)">Jawab Sekarang ❤️</button>
 
     <audio controls autoplay loop>
       <source src="lagu.mp3" type="audio/mp3">
@@ -123,10 +179,13 @@
     </audio>
 
     <img src="animasi.gif" alt="Romantic Bunny GIF" class="gif">
+
+    <p class="penutup">Dari kelinci kecil yang selalu mikirin kamu 🐰❤️</p>
   </div>
 
   <script>
-    function kirimJawaban() {
+    function kirimJawaban(button) {
+      button.innerText = "Aku Juga Sayang Kamu ❤️";
       const pesan = encodeURIComponent("Aku sadar dan aku juga sayang kamu banget ❤️");
       window.open(`https://wa.me/?text=${pesan}`, '_blank');
     }
